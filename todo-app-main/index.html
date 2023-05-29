@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+</head>
+<body>
+  <header class='light-theme' ></header>
+  <main>
+    <div class="header">
+      <h1>T O D O</h1>
+      <div class="toggle-container">
+        <button class="theme-btn light" onclick="setTheme('light')" title="Light mode" >
+          <img src="./images/icon-sun.svg" alt="sun">
+        </button>
+        <button class="theme-btn dark" onclick="setTheme('dark')" title="Dark mode" >
+          <img src="./images/icon-moon.svg" alt="moon">
+        </button>
+      </div>
+    </div>
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="Add new task...">
+      <button type="submit">Add</button>
+    </form>
+    <div class="container">
+      <ul id="todo-list"></ul>
+      <!-- <div class="todo-footer">
+        <a href ="#">5 items left</a>
+        <div class="todo-footer-container">
+          <a href="#">All</a>
+          <a href="#">Active</a>
+          <a href="#">Completed</a>
+        </div>
+        <a href="#" class="clear-completed">Clear Completed</a>
+      </div> -->
+
+      <div class="todo-footer">
+        <a class="completedCount small-size">5 Items Left</a>
+        <div class="filters">
+          <a class="filterActive" onclick="showAll()">All</a>
+          <a onclick="filterActive()">Active</a>
+          <a onclick="filterCompleted()">Completed</a>
+        </div>
+        <a class="small-size" onclick="clearCompleted()">Clear Completed</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Drag and Drop to reorder List</p>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/Gems-coder">GemsCoder</a>.
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,700;1,400&display=swap");
+
+:root,
+:root.light {
+  --bg-image: url("./images/bg-desktop-light.jpg");
+  --bg-color: hsl(0, 0%, 98%);
+  --text-color: hsl(237, 14%, 26%);
+  --bg-todo: hsl(0, 0%, 98%);
+}
+
+:root.dark {
+  --bg-image: url("./images/bg-desktop-dark.jpg");
+  --bg-color: hsl(235, 21%, 11%);
+  --text-color: hsl(234, 39%, 85%);
+  --bg-todo: hsl(235, 24%, 19%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+  /* border: solid red; */
+}
+
+.light-theme {
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 350px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+main {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.header {
+  position: relative;
+  margin-top: -400px;
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  font-size: 20px;
+}
+
+.toggle-container {
+  position: relative;
+}
+
+.theme-btn {
+  width: 55px;
+  height: 55px;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.theme-btn img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.theme-btn.light {
+  display: none;
+}
+
+.dark .theme-btn.dark {
+  display: none;
+}
+
+.dark .theme-btn.light {
+  display: block;
+}
+
+.container {
+  position: relative;
+  margin-top: -40px;
+  width: 600px;
+  box-shadow: -1px 1px 50px gray;
+  border-radius: 5px;
+  /* border: solid yellow; */
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: -180px;
+  width: 600px;
+}
+
+input[type="text"] {
+  padding: 20px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: var(--bg-todo);
+  width: 100%;
+  font-size: 20px;
+  /* margin-bottom: 10px; */
+}
+
+#todo-input:focus {
+  outline: none;
+  background-color: var(--bg-todo);
+}
+
+input[type="radio"]:checked + label {
+  /* background-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)); */
+  text-decoration: line-through;
+}
+
+button[type="submit"] {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 20px;
+  background-color: var(--bg-todo);
+}
+
+ul {
+  list-style: none;
+  /* margin-top: 20px; */
+  padding: 0;
+  width: 100%;
+  /* border: solid brown; */
+}
+
+li {
+  padding: 20px;
+  border-bottom: 2px solid var(--text-color);
+  display: flex;
+  border-radius: 5px;
+  background-color: var(--bg-todo);
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 20px;
+  /* border: solid green; */
+  /* align-items: center; */
+}
+
+li:last-child {
+  border-bottom: none;
+  /* border: solid black; */
+}
+
+li label {
+  flex-grow: 1;
+}
+
+li button {
+  background: none;
+  color: hsl(0, 0%, 50%);
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  gap: 10px;
+}
+
+li button:last-child {
+  font-size: 25px;
+  background: none;
+}
+
+.todo-footer {
+  display: flex;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  background-color: var(--bg-todo);
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 20px;
+  /* border: solid red; */
+  /* margin-bottom: 20px; */
+}
+
+.todo-footer a {
+  text-decoration: none;
+  color: hsl(0, 0%, 50%);
+}
+
+.todo-footer a:hover,
+.todo-footer a:active {
+  color: hsl(220, 98%, 61%);
+  cursor: pointer;
+}
+
+footer p {
+  margin-top: 40px;
+  margin-left: 750px;
+  color: hsl(0, 0%, 50%);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 700px) {
+  
+  .header,
+  form,
+  .container,
+  .todo-footer {
+    width: 100%;
+    padding: 20px;
+    font-size: 5px;
+  }
+
+  input[type="text"], input[type='submit'] {
+    padding: 5px;
+    font-size: 10px;
+  }
+  li, .todo-footer{
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  li button {
+    font-size: 10px;
+    font-weight: 300;
+  }
+  
+}
