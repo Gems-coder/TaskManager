@@ -39,16 +39,29 @@ function renderTodos() {
     //   create checkbox
 
     const done = document.createElement("input");
-    done.type = "radio";
-    done.checked = todo.done;
-    done.style.width = "20px";
-    done.addEventListener("change", () => {
-      todo.done = done.checked;
+    done.setAttribute('type', 'checkbox');
+    // done.style.width = "20px";
+    done.addEventListener('change', function() {
+      if (this.checked) {
+        item.classList.add('completed');
+      } else {
+        item.classList.remove('completed');
+      };
       saveTodos();
     });
 
+    // done.type = "radio";
+    // done.checked = todo.done;
+    // done.style.width = "20px";
+    // done.addEventListener("change", () => {
+    //   todo.done = done.checked;
+    //   saveTodos();
+    // });
+
     // create list item element
     const item = document.createElement("li");
+    item.draggable = true;
+
     const text = document.createElement("label");
     text.innerText = todo.text;
 
@@ -87,7 +100,9 @@ function renderTodos() {
     list.appendChild(item);
     // item.appendChild(taskText);
   });
+  
 }
+
 
 function saveTodos() {
   localStorage.setItem("todos", JSON.stringify(todos));
