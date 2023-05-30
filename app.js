@@ -61,7 +61,7 @@ function renderTodos() {
     buttons.style.width = '20%';
     const edit = document.createElement("button");
     edit.innerText = "Edit";
-    edit.style.fontSize = "20px";
+    // edit.style.fontSize = "20px";
     edit.addEventListener("click", () => {
       const newTodo = prompt("Edit task:", todo.text);
       if (newTodo) {

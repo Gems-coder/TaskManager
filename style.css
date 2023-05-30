@@ -4,7 +4,7 @@
 :root.light {
   --bg-image: url("./images/bg-desktop-light.jpg");
   --bg-color: hsl(0, 0%, 98%);
-  --text-color: hsl(237, 14%, 26%);
+  --text-color: hsl(240, 12%, 46%);
   --bg-todo: hsl(0, 0%, 98%);
 }
 
@@ -107,7 +107,7 @@ input[type="text"] {
   border-radius: 5px 0 0 5px;
   background-color: var(--bg-todo);
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
   /* margin-bottom: 10px; */
 }
 
@@ -127,7 +127,7 @@ button[type="submit"] {
   border-radius: 0 5px 5px 0;
   color: var(--text-color);
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
   background-color: var(--bg-todo);
 }
 
@@ -141,21 +141,20 @@ ul {
 
 li {
   padding: 20px;
-  border-bottom: 2px solid var(--text-color);
+  border-bottom: 1px solid hsl(0, 8%, 85%);
   display: flex;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   background-color: var(--bg-todo);
   justify-content: space-between;
   gap: 20px;
-  font-size: 20px;
+  font-size: 15px;
   /* border: solid green; */
   /* align-items: center; */
 }
 
-li:last-child {
+/* li:last-child {
   border-bottom: none;
   /* border: solid black; */
-}
 
 li label {
   flex-grow: 1;
@@ -168,6 +167,10 @@ li button {
   cursor: pointer;
   margin-left: 5px;
   gap: 10px;
+}
+
+li button:first-child {
+  font-size: 20px;
 }
 
 li button:last-child {
@@ -184,7 +187,7 @@ li button:last-child {
   gap: 20px;
   font-size: 20px;
   /* border: solid red; */
-  /* margin-bottom: 20px; */
+  /* margin-bottom: 50px; */
 }
 
 .todo-footer a {
@@ -198,43 +201,85 @@ li button:last-child {
   cursor: pointer;
 }
 
+footer {
+  margin-top: 30px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
 footer p {
-  margin-top: 40px;
-  margin-left: 750px;
+  /* width: 600px;
+  margin: auto; */
   color: hsl(0, 0%, 50%);
 }
 
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-top: 20px;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
 
 @media screen and (max-width: 700px) {
-  
+  .light-theme {
+    /* background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; */
+    height: 250px;
+  }
+
+  .theme-btn {
+    width: 50px;
+    height: 50px;
+    /* padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent; */
+  }
   .header,
   form,
-  .container,
+  .container {
+    width: 80%;
+  }
+
+  /* .container {
+    font-size: 10px;
+  } */
+
+  .header {
+    font-size: 10px;
+  }
+
+  input[type="text"],
+  input[type="submit"] {
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  /* .todo-footer{
+    margin-top: 20px;
+  } */
+
+  li,
   .todo-footer {
-    width: 100%;
-    padding: 20px;
-    font-size: 5px;
+    padding: 10px;
+    font-size: 11px;
   }
 
-  input[type="text"], input[type='submit'] {
-    padding: 5px;
-    font-size: 10px;
-  }
-  li, .todo-footer{
-    padding: 5px;
+  li button:last-child {
     font-size: 15px;
+    font-weight: 100;
+    font-style: italic;
   }
 
-  li button {
-    font-size: 10px;
-    font-weight: 300;
+  li button:first-child {
+    font-size: 11px;
+    font-weight: 100;
+    /* border: solid red; */
   }
-  
 }
