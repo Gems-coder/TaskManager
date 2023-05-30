@@ -60,6 +60,7 @@ function renderTodos() {
 
     // create list item element
     const item = document.createElement("li");
+    item.className = 'list';
     item.draggable = true;
 
     const text = document.createElement("label");
@@ -101,6 +102,49 @@ function renderTodos() {
     // item.appendChild(taskText);
   });
   
+  // Get all the draggable items
+const lists = document.querySelectorAll('.list');
+
+// Add event listeners for drag events
+lists.forEach(list => {
+  list.addEventListener('dragstart', dragStart);
+  list.addEventListener('dragover', dragOver);
+  list.addEventListener('drop', drop);
+});
+
+let draggedItem = null;
+
+// Handle the dragstart event
+function dragStart(e) {
+  draggedItem = this;
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+}
+
+// Handle the dragover event
+function dragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  e.dataTransfer.dropEffect = 'move';
+  return false;
+}
+
+// Handle the drop event
+function drop(e) {
+  if (e.stopPropagation) {
+    e.stopPropagation();
+  }
+
+  if (draggedItem !== this) {
+    draggedItem.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData('text/html');
+  }
+
+  return false;
+}
+
+ 
 }
 
 
